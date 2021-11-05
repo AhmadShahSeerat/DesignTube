@@ -101,4 +101,4 @@ class DesignsController < ApplicationController
 end
 
 
-#now now 
+#from main to fiday 
