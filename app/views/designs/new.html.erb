@@ -1,0 +1,58 @@
+<!--
+ <h1> Create new design </h1>
+<input name="authenticity_token" type="hidden" value="token_value">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<form action='/designs, method="post'>
+<lable for="design[title]">Title:</lable>
+<input name="design[title]">
+<lable for="design[description]">Description:</lable>
+<input name="design[description]">
+<lable for="design[design_url]">Design Url:</lable>
+<input name="design[design_url]">
+<input type="submit" value="Create Design">
+
+</form>
+
+<h1> ------------------ Form tag -----------------------</h1>  form builder are as below
+
+
+<%= form_tag designs_path do %>  after form_tag it takes either the url or the path both works same 
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+    <%= label_tag :design_url %>
+    <%= text_field_tag :design_url %>
+    <%= submit_tag "Create Design" %>
+<% end %>
+
+<h1> ---------------- Form For -----------------</h1> form builder are as below 
+
+<%= form_for Design.new do |f| %> form_for @design do should work as well
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+   <%= f.label :description %>
+   <%= f.text_field :description %>
+   <%= f.label :design_url %>
+   <%= f.text_field :design_url %>
+
+   <%= f.submit "Create Design" %>
+
+<% end %>
+
+form builder are as below -->
+
+
+<h1> Create New Design </h1>
+
+<%= render partial: 'errors/errors', locals: {model: @design} %>
+<%= form_with(model: [@collage, @design]) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br>
+    <%= f.label :design_url %>
+    <%= f.text_field :design_url %><br>
+    <%= fields_for_helper(f) %>
+    <%= f.submit 'Create Design' %>
+<% end %>

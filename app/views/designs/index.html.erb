@@ -1,0 +1,6 @@
+
+<%= index_header %>
+<%= link_to "MAKES NEW DESIGN FOR COLLAGE", new_collage_design_path(@collage) if @collage %>
+<ul>
+    <%= render @designs %>
+</ul>

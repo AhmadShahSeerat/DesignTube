@@ -1,0 +1,16 @@
+
+
+<!-- to display error messages to user, we can do it from here. -->
+ 
+  <% if model.errors.any? %> <!-- if this design has any error, it will create a div with the id error exp...-->
+  <div id="error_explanation"> <!-- within that div its going to pluralize and basically add everything together-->
+
+    <h2><%= pluralize(model.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+    <ul>
+      <% model.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
