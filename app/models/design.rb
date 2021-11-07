@@ -32,3 +32,5 @@ accepts_nested_attributes_for :collage
     
 
 end
+
+#master checking
